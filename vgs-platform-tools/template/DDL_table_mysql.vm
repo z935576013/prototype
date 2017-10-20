@@ -1,0 +1,25 @@
+#foreach(${dto}in${dtos})
+DELIMITER ;
+DROP TABLE IF EXISTS ${dto.tblId}; 
+
+CREATE TABLE ${dto.tblId} (
+#foreach(${field}in${dto.fields})
+    ${field.colId} ${field.colDataTypeWithLength}  
+    #if (${field.colDefaultValue} != '') default ${field.colDefaultValue}#end 
+    #if (${field.colNotNull} == '1') NOT NULL #elseif ($field.colDataTypeWithLength=='TIMESTAMP') NULL #end 
+    #if(${field.identity} == '1')auto_increment
+    #if(${field.physicalOptions} != '')${field.physicalOptions}#end#end
+    COMMENT '${field.fieldName}',
+#end
+	CREATE_DTTM TIMESTAMP default CURRENT_TIMESTAMP COMMENT  '创建时间',
+    UPDATE_DTTM TIMESTAMP NULL #if($dto.keys.size() != 0) COMMENT  '更新时间',#end
+#foreach(${key}in${dto.keys})
+	PRIMARY KEY (#foreach(${col}in${key.colList})#if($velocityCount != 1),#end ${col}#end)
+#end     
+)
+${dto.physicalOptions};
+
+ALTER TABLE ${dto.tblId} COMMENT = '${dto.tbDesc}';
+
+#end
+

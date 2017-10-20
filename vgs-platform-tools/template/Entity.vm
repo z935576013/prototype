@@ -1,0 +1,63 @@
+#set($LeftBrackets="(")
+/*
+ * Copyright (C), 2013-2014, 
+ * FileName: ${dto.classId}.java
+ * Author:   zhuliang
+ * Date:     2014年10月16日 下午1:30:32
+ */
+package com.merak.bravat.service.intf.dto;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * 实体类$dto.className   
+ * 
+ * @author zhuliang
+ */
+@Entity(name = "${dto.tblId}")
+public class $dto.classId implements Serializable {
+    /**
+     * Serial UID
+     */
+    private static final long serialVersionUID = 1L;
+
+#foreach ( $field in $dto.fields )
+    /**
+     * $field.fieldName $field.fieldComment
+     */
+    private $field.fieldType $field.fieldId;
+#end
+
+#foreach ( $field in $dto.fields )
+    /**
+     * Get $field.fieldId
+     * 
+     * @return $field.fieldId
+     */
+#if($field.colPK == "true")
+    @Id
+    @GeneratedValue(strategy = #if($field.identity == "1")GenerationType.AUTO#else GenerationType.TABLE#end)
+#end
+    @Column(name = "$field.colId")
+    public $field.fieldType get$field.fieldIdCap${LeftBrackets}) {
+        return this.$field.fieldId;
+    }
+
+    /**
+     * Set $field.fieldId
+     * 
+     * @param $field.fieldId $field.fieldName
+     */
+
+    public void set$field.fieldIdCap${LeftBrackets}$field.fieldType $field.fieldId) {
+        this.$field.fieldId = $field.fieldId;
+    }
+
+#end
+}

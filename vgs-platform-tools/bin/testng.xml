@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+
+<suite name="tools" verbose="1">
+
+<suite-files>
+	<suite-file path="../vgs-platform-integration/src/test/testng1.xml"></suite-file>
+	<suite-file path="../vgs-platform-common-service/src/test/testng1.xml"></suite-file>
+</suite-files>
+
+</suite>

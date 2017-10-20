@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+<generatorConfiguration>  
+    <!-- 数据库驱动包位置 -->  
+    <classPathEntry location="/Users/lz/workspace/mybatis/src/ojdbc7.jar" />   
+    <!-- <classPathEntry location="C:\oracle\product\10.2.0\db_1\jdbc\lib\ojdbc14.jar" />-->  
+    <context id="DB2Tables" targetRuntime="MyBatis3">  
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin> 
+        <commentGenerator>  
+            <property name="suppressAllComments" value="false" />  
+            <property name="addRemarkComments" value="true" />  
+        </commentGenerator>  
+        <!-- 数据库链接URL、用户名、密码 -->  
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.0.0.23:1521:xe" userId="bank" password="123">
+        </jdbcConnection>  
+        <javaTypeResolver>  
+            <property name="forceBigDecimals" value="false" />  
+        </javaTypeResolver>  
+        <!-- 生成模型的包名和位置 -->  
+        <javaModelGenerator targetPackage="com.sdx.njcb.dao.entity.gen" targetProject="/Users/lz/workspace/mybatis/src">  
+            <property name="enableSubPackages" value="true" />  
+            <property name="trimStrings" value="true" />  
+        </javaModelGenerator>  
+        <!-- 生成的映射文件包名和位置 -->  
+        <sqlMapGenerator targetPackage="com.sdx.njcb.dao.xml.gen" targetProject="/Users/lz/workspace/mybatis/src">  
+            <property name="enableSubPackages" value="true" />  
+        </sqlMapGenerator>  
+        <!-- 生成DAO的包名和位置 -->  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sdx.njcb.dao.intf.gen" targetProject="/Users/lz/workspace/mybatis/src">  
+            <property name="enableSubPackages" value="true" />  
+        </javaClientGenerator>  
+        <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+        <!--  
+        <table tableName="RESUME_AWARD" domainObjectName="ResumeAward" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="USER_INFO" domainObjectName="UserInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RESUME_DELIVERY" domainObjectName="ResumeDelivery" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RESUME_EDUCATION" domainObjectName="ResumeEducation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RESUME_INFO" domainObjectName="ResumeInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RESUME_RELATION" domainObjectName="ResumeRelation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RESUME_WORK" domainObjectName="ResumeWork" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="POST_COLLECT" domainObjectName="PostCollect" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RECRUIT_BATCH" domainObjectName="RecruitBatch" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RECRUIT_POST_TEMPLATE" domainObjectName="RecruitPostTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="RECRUIT_POST" domainObjectName="RecruitPost" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="COMMON_QA_TYPE" domainObjectName="CommonQaType" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="COMMON_QA" domainObjectName="CommonQa" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        <table tableName="SITE_MESSAGE" domainObjectName="SiteMessage" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+        -->
+        <table tableName="NOTICE" domainObjectName="Notice" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />  
+    </context>  
+</generatorConfiguration> 
+
+
+
+ 
